@@ -1,6 +1,7 @@
 // backend/index.js
 const express = require("express");
 const todoItems = require("./todo-items.json");
+const home = require("../frontend/app/page.tsx");
 
 const PORT = process.env.PORT || 3010;
 const app = express();
@@ -16,6 +17,10 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
     res.send("Hello World!");
+});
+
+app.get('/app', (req, res) => {
+    res.send(home.Home());
 });
 
 app.get('/api/todo-items', (req, res) => {
